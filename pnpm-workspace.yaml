@@ -1,0 +1,8 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+catalog:
+  "@types/node": 25.0.3
+
+injectWorkspacePackages: true

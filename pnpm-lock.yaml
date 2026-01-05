@@ -3,17 +3,26 @@ lockfileVersion: '9.0'
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
+  injectWorkspacePackages: true
+
+catalogs:
+  default:
+    '@types/node':
+      specifier: 25.0.3
+      version: 25.0.3
 
 importers:
 
-  .:
+  .: {}
+
+  apps/api:
     dependencies:
       fastify:
         specifier: ^5.6.2
         version: 5.6.2
     devDependencies:
       '@types/node':
-        specifier: ^25.0.3
+        specifier: 'catalog:'
         version: 25.0.3
 
 packages:
