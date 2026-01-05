@@ -1,0 +1,35 @@
+{
+  "name": "find-a-friend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Modern full-stack monorepo built with pnpm workspaces and Turborepo, featuring a Next.js web application and a SOLID-driven Node.js backend for a real-world pet adoption platform.",
+  "author": "Matheus Teodoro Garcia <https://github.com/MatheusTG>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusteodoro/find-a-friend"
+  },
+  "keywords": [
+    "monorepo",
+    "turborepo",
+    "pnpm",
+    "full-stack",
+    "node.js",
+    "next.js",
+    "typescript",
+    "fastify",
+    "prisma",
+    "postgresql",
+    "docker",
+    "vitest",
+    "rest-api",
+    "solid",
+    "clean-architecture",
+    "automated-tests",
+    "pet-adoption"
+  ],
+  "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=20"
+  }
+}
