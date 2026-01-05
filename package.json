@@ -29,6 +29,9 @@
     "pet-adoption"
   ],
   "packageManager": "pnpm@10.27.0",
+  "devDependencies": {
+    "typescript": "catalog:"
+  },
   "engines": {
     "node": ">=20"
   }

@@ -1,0 +1,19 @@
+{
+  "name": "@find-a-friend/config",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Shared tooling configuration package for the Find a Friend monorepo, providing reusable TypeScript, ESLint, and Vitest configurations.",
+  "author": "Matheus Teodoro Garcia <https://github.com/MatheusTG>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsup"
+  },
+  "exports": {
+    "./typescript": "./dist/tsconfig.base.json"
+  },
+  "packageManager": "pnpm@10.27.0",
+  "devDependencies": {
+    "tsup": "8.5.1"
+  }
+}
