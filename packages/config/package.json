@@ -24,7 +24,6 @@
     "@eslint/markdown": "^7.5.1",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
-    "prettier": "^3.7.4",
     "shx": "^0.4.0",
     "tsup": "8.5.1",
     "typescript-eslint": "^8.52.0"
