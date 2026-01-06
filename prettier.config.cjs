@@ -1,4 +1,4 @@
-const base = require("./packages/config/base/prettier.config.base.cjs")
+const base = require("./packages/config/prettier.config.cjs")
 
 module.exports = {
   ...base,

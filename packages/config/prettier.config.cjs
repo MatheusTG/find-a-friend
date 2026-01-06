@@ -1,5 +1,9 @@
-const base = require("./base/prettier.config.base.cjs");
-
 module.exports = {
-  ...base,
+  printWidth: 100,
+  tabWidth: 2,
+  singleQuote: false,
+  bracketSpacing: true,
+  trailingComma: "es5",
+  semi: true,
+  arrowParens: "always",
 };

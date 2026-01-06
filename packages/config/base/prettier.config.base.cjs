@@ -1,9 +1,0 @@
-module.exports = {
-  printWidth: 100,
-  tabWidth: 2,
-  singleQuote: false,
-  bracketSpacing: true,
-  trailingComma: 'es5',
-  semi: true,
-  arrowParens: 'always',
-};

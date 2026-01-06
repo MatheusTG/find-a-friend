@@ -6,14 +6,14 @@
   "author": "Matheus Teodoro Garcia <https://github.com/MatheusTG>",
   "license": "MIT",
   "type": "module",
-  "scripts": {
-    "build": "tsup"
-  },
   "exports": {
-    "./typescript": "./dist/tsconfig.base.json",
-    "./eslint": "./dist/eslint.config.base.js",
+    "./typescript": "./tsconfig.json",
+    "./eslint": {
+      "import": "./eslint.config.mjs"
+    },
     "./prettier": {
-      "require": "./dist/prettier.config.base.cjs"
+      "require": "./prettier.config.cjs",
+      "types": "./prettier.config.d.ts"
     }
   },
   "packageManager": "pnpm@10.27.0",
