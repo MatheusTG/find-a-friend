@@ -16,6 +16,7 @@ Functional requirements describe what the system must do.
   - [x] Age
   - [x] Size
   - [x] Energy level
+  - [x] Independence level
   - [x] City
   - [x] Additional characteristics
 - [x] **FR005 - Pets:** The system must allow listing all pets available for adoption by city.

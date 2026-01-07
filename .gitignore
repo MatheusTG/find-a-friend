@@ -11,13 +11,13 @@ turbo.log
 .pnpm-debug.log*
 
 # ======================================================
-# Diagnostic reports (Node.js)
+# Diagnostic Reports (Node.js)
 # https://nodejs.org/api/report.html
 # ======================================================
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # ======================================================
-# Runtime data
+# Runtime Data
 # ======================================================
 pids
 *.pid
@@ -25,7 +25,7 @@ pids
 *.pid.lock
 
 # ======================================================
-# Coverage / Test reports
+# Coverage / Test Reports
 # ======================================================
 coverage
 *.lcov
@@ -37,25 +37,25 @@ cypress/videos
 cypress/screenshots
 
 # ======================================================
-# Instrumentation / Task runners
+# Instrumentation / Task Runners
 # ======================================================
 lib-cov
 .grunt
 
 # ======================================================
-# Dependency directories
+# Dependency Directories
 # ======================================================
 node_modules/
 jspm_packages/
 bower_components
 web_modules/
 
-# Monorepo (apps / packages)
+# Monorepo dependencies
 apps/**/node_modules
 packages/**/node_modules
 
 # ======================================================
-# Build outputs
+# Build Outputs
 # ======================================================
 dist
 build
@@ -63,6 +63,11 @@ out
 .tmp
 tmp
 build/Release
+
+# ======================================================
+# Generated Code
+# ======================================================
+**/src/generated/prisma
 
 # ======================================================
 # Frameworks / Meta-frameworks
@@ -103,7 +108,7 @@ dist
 .turbo
 
 # ======================================================
-# TypeScript / JavaScript caches
+# TypeScript / JavaScript Caches
 # ======================================================
 *.tsbuildinfo
 .swc
@@ -111,7 +116,7 @@ dist
 babel.config.js.cache
 
 # ======================================================
-# Package managers
+# Package Managers
 # ======================================================
 
 # npm
@@ -141,21 +146,21 @@ babel.config.js.cache
 eslint-report.html
 
 # ======================================================
-# Environment variables
+# Environment Variables
 # ======================================================
 .env
 .env.*
 !.env.example
 
 # ======================================================
-# Serverless / Cloud
+# Serverless / Cloud Providers
 # ======================================================
 .serverless/
 .firebase/
 .dynamodb/
 
 # ======================================================
-# Bundlers / Tooling caches
+# Bundlers / Tooling Caches
 # ======================================================
 .cache
 .parcel-cache
@@ -181,13 +186,13 @@ storybook-static
 .vscode-test
 
 # ======================================================
-# OS files
+# OS Files
 # ======================================================
 .DS_Store
 Thumbs.db
 
 # ======================================================
-# Vite logs
+# Vite Logs
 # ======================================================
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Age {
+  PUPPY
+  JUNIOR
+  ADULT
+  SENIOR
+}
+
+enum Size {
+  Small
+  Medium
+  Large
+  Huge
+}
+
+enum EnergyLevel {
+  ONE
+  TWO
+  THREE
+  FOUR
+  FIVE
+}
+
+enum IndependenceLevel {
+  ONE
+  TWO
+  THREE
+  FOUR
+  FIVE
+}
+
+model Pet {
+  id                         String            @id @default(uuid())
+  name                       String
+  description                String
+  age                        Age
+  size                       Size
+  energy_level               EnergyLevel
+  independence_level         IndependenceLevel
+  additional_characteristics String
+  created_at                 DateTime          @default(now())
+  updated_at                 DateTime          @updatedAt
+
+  org_id String
+  org    Org    @relation(fields: [org_id], references: [id])
+
+  @@map("pets")
+}
+
+model Org {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  password_hash String
+  phone         String
+  cep           String
+  neighborhood  String
+  street        String
+  number        String
+  complement    String?
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  pets Pet[]
+
+  @@map("orgs")
+}
