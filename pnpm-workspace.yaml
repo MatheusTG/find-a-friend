@@ -3,10 +3,12 @@ packages:
   - packages/*
 
 catalog:
-  "@types/node": 25.0.3
+  '@types/node': 25.0.3
   typescript: 5.9.3
 
 injectWorkspacePackages: true
 
 onlyBuiltDependencies:
+  - '@prisma/engines'
   - esbuild
+  - prisma
