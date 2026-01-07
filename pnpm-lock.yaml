@@ -18,6 +18,9 @@ importers:
 
   .:
     devDependencies:
+      eslint:
+        specifier: ^9.39.2
+        version: 9.39.2
       prettier:
         specifier: ^3.7.4
         version: 3.7.4

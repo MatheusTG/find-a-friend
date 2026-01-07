@@ -51,7 +51,7 @@ services:
     environment:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=ignitenode03
+      - POSTGRESQL_DATABASE=findafriend
 
 networks:
   default:
