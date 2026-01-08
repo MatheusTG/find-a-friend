@@ -30,13 +30,13 @@ services:
     container_name: api
     build:
       context: .
-      target: dev
       dockerfile: apps/api/Dockerfile
+      target: dev
     depends_on:
-      workspace:
-        condition: service_started
       setup:
         condition: service_completed_successfully
+      workspace:
+        condition: service_started
     volumes:
       - .:/find-a-friend
       - node_modules:/find-a-friend/node_modules
@@ -47,11 +47,11 @@ services:
   postgres:
     image: bitnami/postgresql
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
-      - POSTGRESQL_USERNAME=docker
-      - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=findafriend
+      POSTGRESQL_USERNAME: docker
+      POSTGRESQL_PASSWORD: docker
+      POSTGRESQL_DATABASE: findafriend
 
 networks:
   default:

@@ -1,0 +1,22 @@
+services:
+  devcontainer:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.cli
+    volumes:
+      - ..:/find-a-friend
+      - node_modules:/find-a-friend/node_modules
+    working_dir: /find-a-friend
+    command: sh -c "tail -f /dev/null"
+
+  postgres:
+    image: bitnami/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRESQL_USERNAME: docker
+      POSTGRESQL_PASSWORD: docker
+      POSTGRESQL_DATABASE: findafriend
+
+volumes:
+  node_modules:
