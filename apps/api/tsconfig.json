@@ -1,3 +1,7 @@
 {
-  "extends": "@find-a-friend/config/typescript"
+  "extends": "@find-a-friend/config/typescript",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node"
+  }
 }
