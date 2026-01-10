@@ -1,10 +1,9 @@
 import fastify from "fastify";
+import { orgsRoutes } from "./modules/orgs/orgs.routes";
 
 const app = fastify();
 
-app.get("/", async (request, reply) => {
-  return reply.send("Hello World!!!");
-});
+app.register(orgsRoutes);
 
 try {
   await app.listen({ port: 3333, host: "0.0.0.0" });
