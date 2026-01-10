@@ -1,7 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { CreateOrgUseCase } from "../use-cases/create.use-case";
-import { PrismaOrgsRepository } from "../repositories/prisma-orgs.repository";
+import { MakeCreateOrgUseCase } from "../factories/make-create.use-case";
 
 export async function CreateOrgController(request: FastifyRequest, reply: FastifyReply) {
   const createOrgBodySchema = z.object({
@@ -19,8 +18,7 @@ export async function CreateOrgController(request: FastifyRequest, reply: Fastif
   try {
     const requestData = createOrgBodySchema.parse(request.body);
 
-    const orgsRepository = new PrismaOrgsRepository();
-    const createOrgUseCase = new CreateOrgUseCase(orgsRepository);
+    const createOrgUseCase = MakeCreateOrgUseCase();
 
     await createOrgUseCase.execute(requestData);
 
