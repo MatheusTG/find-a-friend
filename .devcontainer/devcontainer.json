@@ -15,5 +15,5 @@
     }
   },
 
-  "postCreateCommand": "pnpm install && pnpm --filter @find-a-friend/api prisma generate"
+  "postCreateCommand": "pnpm install && pnpm --filter api exec prisma generate && pnpm --filter api exec prisma migrate deploy"
 }
