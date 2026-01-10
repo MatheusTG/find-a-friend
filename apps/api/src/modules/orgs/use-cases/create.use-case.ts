@@ -6,7 +6,7 @@ import { EmailAlreadyExistsError } from "@/lib/errors/email-already-exists.error
 
 type CreateOrgUseCaseRequest = CreateOrgInput;
 
-type CreateOrgUseCaseResponse = Org;
+type CreateOrgUseCaseResponse = { org: Org };
 
 export class CreateOrgUseCase {
   constructor(private orgsRepository: OrgsRepository) {}
@@ -22,10 +22,14 @@ export class CreateOrgUseCase {
 
     const password_hash = await hash(password, 6);
 
-    return this.orgsRepository.create({
+    const org = await this.orgsRepository.create({
       ...data,
       email,
       password_hash,
     });
+
+    return {
+      org,
+    };
   }
 }
