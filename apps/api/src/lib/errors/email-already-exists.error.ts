@@ -1,5 +1,7 @@
-export class EmailAlreadyExistsError extends Error {
+import { AppError } from "./app-error";
+
+export class EmailAlreadyExistsError extends AppError {
   constructor() {
-    super("E-mail already exists.");
+    super("EmailAlreadyExistsError", 401, "EMAIL_ALREADY_EXISTS");
   }
 }
