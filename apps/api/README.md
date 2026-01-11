@@ -8,7 +8,7 @@ for the Find A Friend platform.
 Functional requirements describe what the system must do.
 
 - [x] **FR001 - ORGs:** The system must allow organizations to be created.
-- [ ] **FR002 - ORGs:** The system must allow organizations to authenticate.
+- [x] **FR002 - ORGs:** The system must allow organizations to authenticate.
 - [ ] **FR003 - Authentication:** The system must identify the authenticated ORG across requests (e.g., tokens).
 - [ ] **FR004 - Pets:** The system must allow registering a pet with the following information:
   - [ ] Name
@@ -43,7 +43,7 @@ Business rules define mandatory constraints and behaviors.
 Non-functional requirements describe how the system should operate.
 
 - [x] **NFR001 - Architecture:** The API must follow RESTful principles.
-- [ ] **NFR002 - Security:** The system must ensure secure authentication and authorization using JWT (JSON Web Tokens).
+- [x] **NFR002 - Security:** The system must ensure secure authentication and authorization using JWT (JSON Web Tokens).
 - [x] **NFR003 - Data Management:** Data must be persisted in a PostgreSQL relational database.
 - [x] **NFR004 - Maintainability:** The codebase must be clean and maintainable.
 - [ ] **NFR005 - Testability:** The application must support automated tests.
