@@ -1,0 +1,7 @@
+@baseUrl=http://localhost:3333
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4MTk0MGVlMS1lNzViLTRjOWMtOTI2My05ZTA3M2I3MTUwZGQiLCJpYXQiOjE3NjgxNTMyOTYsImV4cCI6MTc2ODE1Mzg5Nn0.ynhnFrtLTALMgxCdHLwlddUuM7fgCjQbPN-YbB09rVM
+
+POST {{baseUrl}}/orgs/auth
+Content-Type: application/json
+Cookie: refreshToken={{token}}
+
