@@ -1,6 +1,12 @@
 import fastify from "fastify";
-import { orgsRoutes } from "./modules/orgs/orgs.routes";
+import { registerRoutes } from "./http/routes";
 
-export const app = fastify();
+export async function createApp() {
+  const app = fastify({
+    logger: true,
+  });
 
-app.register(orgsRoutes);
+  await registerRoutes(app);
+
+  return app;
+}
