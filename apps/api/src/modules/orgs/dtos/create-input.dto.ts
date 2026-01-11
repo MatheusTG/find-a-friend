@@ -7,9 +7,7 @@ interface CreateOrgBase {
   neighborhood: string;
   street: string;
   number: string;
-  complement?: string | null;
-  created_at?: string | Date;
-  updated_at?: string | Date;
+  complement: string | null;
   // pets?:
 }
 

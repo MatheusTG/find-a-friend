@@ -10,5 +10,5 @@ export interface Org {
   street: string;
   complement: string | null;
   created_at: Date;
-  updated_at: Date;
+  updated_at?: Date;
 }
