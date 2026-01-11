@@ -1,5 +1,6 @@
 import fastify from "fastify";
 import { registerRoutes } from "./http/routes";
+import { registerErrorHandler } from "./http/error-handler";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -19,6 +20,7 @@ export async function createApp() {
       : true,
   });
 
+  registerErrorHandler(app);
   await registerRoutes(app);
 
   return app;

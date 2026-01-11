@@ -15,24 +15,10 @@ export async function CreateOrgController(request: FastifyRequest, reply: Fastif
     complement: z.string().optional(),
   });
 
-  try {
-    const requestData = createOrgBodySchema.parse(request.body);
+  const requestData = createOrgBodySchema.parse(request.body);
 
-    const createOrgUseCase = MakeCreateOrgUseCase();
+  const createOrgUseCase = MakeCreateOrgUseCase();
+  await createOrgUseCase.execute(requestData);
 
-    await createOrgUseCase.execute(requestData);
-
-    return reply.status(201).send();
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return reply.status(400).send({
-        message: "Validation error",
-        issues: z.treeifyError(error),
-      });
-    }
-
-    request.log.error(error);
-
-    throw error;
-  }
+  return reply.status(201).send();
 }
