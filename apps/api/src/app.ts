@@ -1,6 +1,9 @@
 import fastify from "fastify";
 import { registerRoutes } from "./http/routes";
 import { registerErrorHandler } from "./http/error-handler";
+import { env } from "./env";
+import fastifyJwt from "@fastify/jwt";
+import fastifyCookie from "@fastify/cookie";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -18,6 +21,18 @@ export async function createApp() {
           },
         }
       : true,
+  });
+
+  app.register(fastifyCookie);
+  app.register(fastifyJwt, {
+    secret: env.JWT_SECRET,
+    cookie: {
+      cookieName: "refreshToken",
+      signed: false,
+    },
+    sign: {
+      expiresIn: "10m",
+    },
   });
 
   registerErrorHandler(app);
