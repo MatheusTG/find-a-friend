@@ -30,8 +30,8 @@ Functional requirements describe what the system must do.
 
 Business rules define mandatory constraints and behaviors.
 
-- [ ] **BR001 - Ownership:** Each pet must belong to exactly one ORG.
-- [ ] **BR002 - Access Control:** Only authenticated ORGs can register or manage pets.
+- [x] **BR001 - Ownership:** Each pet must belong to exactly one ORG.
+- [x] **BR002 - Access Control:** Only authenticated ORGs can register or manage pets.
 - [ ] **BR003 - Data Privacy:** ORGs can only manage pets they have created.
 - [ ] **BR004 - Mandatory City:** City is required when listing pets.
 - [ ] **BR005 - Direct Contact:** Adoption contact must be made directly with the ORG.

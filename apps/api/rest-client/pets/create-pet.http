@@ -4,7 +4,6 @@ POST {{baseUrl}}/pets
 Content-Type: application/json
 
 {
-  "org_id": "d6ff268f-4a24-431f-8914-146a84199d11",
   "name": "Thor",
   "description": "Friendly and playful dog, great with kids",
   "age": "ADULT",

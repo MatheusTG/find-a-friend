@@ -5,7 +5,6 @@ import { EnergyLevel, IndependenceLevel, PetAge, PetSize } from "../entities/pet
 
 export async function createPetController(request: FastifyRequest, reply: FastifyReply) {
   const createPetBodySchema = z.object({
-    org_id: z.uuid(),
     name: z.string(),
     description: z.string(),
     age: z.enum(Object.values(PetAge)),
@@ -18,7 +17,7 @@ export async function createPetController(request: FastifyRequest, reply: Fastif
   const requestData = createPetBodySchema.parse(request.body);
 
   const createPetUseCase = MakeCreatePetUseCase();
-  await createPetUseCase.execute(requestData);
+  await createPetUseCase.execute({ org_id: request.user.sub, ...requestData });
 
   return reply.status(201).send();
 }
