@@ -1,10 +1,10 @@
 import { hash } from "bcryptjs";
-import { CreateOrgInput } from "../dtos/create-input.dto";
+import { OrgCreateInput } from "../dtos/org-create-input.dto";
 import { Org } from "../entities/org";
 import { OrgsRepository } from "../repositories/orgs.repository";
 import { EmailAlreadyExistsError } from "@/lib/errors/email-already-exists.error";
 
-type CreateOrgUseCaseRequest = CreateOrgInput;
+type CreateOrgUseCaseRequest = OrgCreateInput;
 
 type CreateOrgUseCaseResponse = { org: Org };
 

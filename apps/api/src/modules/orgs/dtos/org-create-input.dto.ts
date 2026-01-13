@@ -1,4 +1,4 @@
-interface CreateOrgBase {
+interface OrgCreateBase {
   id?: string;
   name: string;
   email: string;
@@ -11,10 +11,10 @@ interface CreateOrgBase {
   // pets?:
 }
 
-export interface CreateOrgInput extends CreateOrgBase {
+export interface OrgCreateInput extends OrgCreateBase {
   password: string;
 }
 
-export interface CreateOrgData extends CreateOrgBase {
+export interface OrgCreateData extends OrgCreateBase {
   password_hash: string;
 }

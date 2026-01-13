@@ -9,7 +9,7 @@ Functional requirements describe what the system must do.
 
 - [x] **FR001 - ORGs:** The system must allow organizations to be created.
 - [x] **FR002 - ORGs:** The system must allow organizations to authenticate.
-- [ ] **FR003 - Authentication:** The system must identify the authenticated ORG across requests (e.g., tokens).
+- [x] **FR003 - Authentication:** The system must identify the authenticated ORG across requests (e.g., tokens).
 - [ ] **FR004 - Pets:** The system must allow registering a pet with the following information:
   - [ ] Name
   - [ ] Description
