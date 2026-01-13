@@ -12,7 +12,7 @@ export async function createOrgController(request: FastifyRequest, reply: Fastif
     cep: z.string(),
     neighborhood: z.string(),
     street: z.string(),
-    complement: z.string().optional(),
+    complement: z.string().nullable(),
   });
 
   const requestData = createOrgBodySchema.parse(request.body);
