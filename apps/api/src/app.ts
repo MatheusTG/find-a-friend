@@ -1,29 +1,40 @@
 import fastify from "fastify";
-import { registerRoutes } from "./http/routes";
-import { registerErrorHandler } from "./http/error-handler";
-import { env } from "./env";
 import fastifyJwt from "@fastify/jwt";
 import fastifyCookie from "@fastify/cookie";
 
-const isDev = process.env.NODE_ENV !== "production";
+import { registerRoutes } from "./http/routes";
+import { registerErrorHandler } from "./http/error-handler";
+import { env } from "./env";
+
+const isDev = env.NODE_ENV === "development";
+const isTest = env.NODE_ENV === "test";
+
+function buildLogger() {
+  if (isTest) return false;
+
+  if (isDev) {
+    return {
+      transport: {
+        target: "pino-pretty",
+        options: {
+          colorize: true,
+          translateTime: "HH:MM:ss",
+          ignore: "pid,hostname",
+        },
+      },
+    };
+  }
+
+  return true;
+}
 
 export async function createApp() {
   const app = fastify({
-    logger: isDev
-      ? {
-          transport: {
-            target: "pino-pretty",
-            options: {
-              colorize: true,
-              translateTime: "HH:MM:ss",
-              ignore: "pid,hostname",
-            },
-          },
-        }
-      : true,
+    logger: buildLogger(),
   });
 
   app.register(fastifyCookie);
+
   app.register(fastifyJwt, {
     secret: env.JWT_SECRET,
     cookie: {
