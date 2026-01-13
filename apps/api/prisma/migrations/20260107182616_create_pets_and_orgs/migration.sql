@@ -19,7 +19,7 @@ CREATE TABLE "pets" (
     "size" "Size" NOT NULL,
     "energy_level" "EnergyLevel" NOT NULL,
     "independence_level" "IndependenceLevel" NOT NULL,
-    "additional_characteristics" TEXT NOT NULL,
+    "additional_characteristics" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "org_id" TEXT NOT NULL,

@@ -45,7 +45,7 @@ model Pet {
   size                       Size
   energy_level               EnergyLevel
   independence_level         IndependenceLevel
-  additional_characteristics String
+  additional_characteristics String?
   created_at                 DateTime          @default(now())
   updated_at                 DateTime          @updatedAt
 
