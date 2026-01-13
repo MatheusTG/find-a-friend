@@ -17,6 +17,15 @@ export default defineConfig({
           include: ["**/tests/**/*.{test,spec}.{ts,tsx}"],
         },
       },
+      {
+        extends: true,
+        test: {
+          name: "e2e",
+          dir: "e2e",
+          include: ["**/*.{test,spec}.ts"],
+          environment: "./prisma/vite-environment/test-environment.ts",
+        },
+      },
     ],
   },
 });
