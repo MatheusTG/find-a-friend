@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { createOrgController } from "./controllers/create.controller";
+import { createOrgController } from "./controllers/create-org.controller";
 import { authenticateController } from "./controllers/authenticate.controller";
 import { refreshController } from "./controllers/refresh.controller";
 

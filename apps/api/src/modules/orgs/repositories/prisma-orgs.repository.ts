@@ -4,11 +4,11 @@ import { OrgsRepository } from "./orgs.repository";
 
 export class PrismaOrgsRepository implements OrgsRepository {
   async create(data: Prisma.OrgCreateInput) {
-    const gym = await prisma.org.create({
+    const org = await prisma.org.create({
       data,
     });
 
-    return gym;
+    return org;
   }
 
   async findById(id: string) {
