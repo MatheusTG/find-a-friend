@@ -1,5 +1,4 @@
 interface OrgCreateBase {
-  id?: string;
   name: string;
   email: string;
   phone: string;
@@ -8,7 +7,6 @@ interface OrgCreateBase {
   street: string;
   number: string;
   complement: string | null;
-  // pets?:
 }
 
 export interface OrgCreateInput extends OrgCreateBase {

@@ -1,6 +1,6 @@
 import { expect, describe, it, beforeEach } from "vitest";
 import { InMemoryOrgsRepository } from "../repositories/in-memory-orgs.repository";
-import { CreateOrgUseCase } from "../use-cases/create.use-case";
+import { CreateOrgUseCase } from "../use-cases/create-org.use-case";
 import { EmailAlreadyExistsError } from "@/lib/errors/email-already-exists.error";
 import { compare } from "bcryptjs";
 
