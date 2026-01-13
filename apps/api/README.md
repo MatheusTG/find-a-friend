@@ -10,15 +10,15 @@ Functional requirements describe what the system must do.
 - [x] **FR001 - ORGs:** The system must allow organizations to be created.
 - [x] **FR002 - ORGs:** The system must allow organizations to authenticate.
 - [x] **FR003 - Authentication:** The system must identify the authenticated ORG across requests (e.g., tokens).
-- [ ] **FR004 - Pets:** The system must allow registering a pet with the following information:
-  - [ ] Name
-  - [ ] Description
-  - [ ] Age
-  - [ ] Size
-  - [ ] Energy level
-  - [ ] Independence level
-  - [ ] City
-  - [ ] Additional characteristics
+- [x] **FR004 - Pets:** The system must allow registering a pet with the following information:
+  - [x] Name
+  - [x] Description
+  - [x] Age
+  - [x] Size
+  - [x] Energy level
+  - [x] Independence level
+  - [x] City
+  - [x] Additional characteristics
 - [ ] **FR005 - Pets:** The system must allow listing all pets available for adoption by city.
 - [ ] **FR006 - Pets:** The system must allow filtering pets by characteristics.
 - [ ] **FR007 - Pets:** The system must allow viewing a specific pet.
