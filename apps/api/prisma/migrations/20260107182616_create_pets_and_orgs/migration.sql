@@ -2,7 +2,7 @@
 CREATE TYPE "Age" AS ENUM ('PUPPY', 'JUNIOR', 'ADULT', 'SENIOR');
 
 -- CreateEnum
-CREATE TYPE "Size" AS ENUM ('Small', 'Medium', 'Large', 'Huge');
+CREATE TYPE "Size" AS ENUM ('SMALL', 'MEDIUM', 'LARGE', 'HUGE');
 
 -- CreateEnum
 CREATE TYPE "EnergyLevel" AS ENUM ('ONE', 'TWO', 'THREE', 'FOUR', 'FIVE');

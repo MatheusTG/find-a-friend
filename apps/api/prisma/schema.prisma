@@ -15,10 +15,10 @@ enum Age {
 }
 
 enum Size {
-  Small
-  Medium
-  Large
-  Huge
+  SMALL
+  MEDIUM
+  LARGE
+  HUGE
 }
 
 enum EnergyLevel {
