@@ -3,4 +3,5 @@ import { Pet } from "../entities/pet";
 
 export interface PetsRepository {
   create(data: PetCreateInput): Promise<Pet>;
+  findManyByCity(city: string): Promise<Pet[]>;
 }

@@ -46,5 +46,5 @@ Non-functional requirements describe how the system should operate.
 - [x] **NFR002 - Security:** The system must ensure secure authentication and authorization using JWT (JSON Web Tokens).
 - [x] **NFR003 - Data Management:** Data must be persisted in a PostgreSQL relational database.
 - [x] **NFR004 - Maintainability:** The codebase must be clean and maintainable.
-- [ ] **NFR005 - Testability:** The application must support automated tests.
+- [x] **NFR005 - Testability:** The application must support automated tests.
 - [x] **NFR006 - Performance:** The API must efficiently handle concurrent requests.

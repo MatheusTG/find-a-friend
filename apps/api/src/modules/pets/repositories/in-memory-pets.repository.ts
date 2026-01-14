@@ -3,8 +3,13 @@ import { Pet } from "../entities/pet";
 import { PetsRepository } from "./pets.repository";
 import { PetCreateInput } from "../dtos/pet-create-input.dto";
 
+type OrgCityMap = Map<string, string>;
+
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = [];
+
+  constructor(private orgCityMap: OrgCityMap) {}
+
   async create(data: PetCreateInput) {
     const org: Pet = {
       ...data,
@@ -15,5 +20,9 @@ export class InMemoryPetsRepository implements PetsRepository {
     this.items.push(org);
 
     return org;
+  }
+
+  async findManyByCity(city: string): Promise<Pet[]> {
+    return this.items.filter((pet) => this.orgCityMap.get(pet.orgId) === city);
   }
 }
