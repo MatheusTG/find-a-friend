@@ -1,7 +1,8 @@
 @baseUrl=http://localhost:3333
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMGU3MmQzMS0yMDVhLTQ0N2MtYTA3Ni1lZDk3ODI0MmVmMzciLCJpYXQiOjE3Njg0MTgzODYsImV4cCI6MTc2ODQxODk4Nn0.hARaQnTzRM2acc5JIK_5_S9fbwYB7ShzQPLKAizdc4M
+@city=Campo Mourão
 
-POST {{ baseUrl }}/pets
+POST {{ baseUrl }}/pets/{{ city }}
 Content-Type: application/json
 Authorization: Bearer {{ token }}
 

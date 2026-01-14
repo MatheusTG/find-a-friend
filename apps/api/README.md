@@ -19,7 +19,7 @@ Functional requirements describe what the system must do.
   - [x] Independence level
   - [x] City
   - [x] Additional characteristics
-- [ ] **FR005 - Pets:** The system must allow listing all pets available for adoption by city.
+- [x] **FR005 - Pets:** The system must allow listing all pets available for adoption by city.
 - [ ] **FR006 - Pets:** The system must allow filtering pets by characteristics.
 - [ ] **FR007 - Pets:** The system must allow viewing a specific pet.
 - [ ] **FR008 - Adoption:** The system must provide the ORG’s contact information for adoption.

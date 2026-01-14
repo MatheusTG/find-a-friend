@@ -1,6 +1,6 @@
 @baseUrl=http://localhost:3333
 
-POST {{baseUrl}}/orgs/auth
+POST {{ baseUrl }}/orgs/auth
 Content-Type: application/json
 
 {

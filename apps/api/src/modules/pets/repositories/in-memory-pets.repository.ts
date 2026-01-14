@@ -8,7 +8,7 @@ type OrgCityMap = Map<string, string>;
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = [];
 
-  constructor(private orgCityMap: OrgCityMap) {}
+  constructor(private orgCityMap?: OrgCityMap) {}
 
   async create(data: PetCreateInput) {
     const org: Pet = {
@@ -23,6 +23,6 @@ export class InMemoryPetsRepository implements PetsRepository {
   }
 
   async findManyByCity(city: string): Promise<Pet[]> {
-    return this.items.filter((pet) => this.orgCityMap.get(pet.orgId) === city);
+    return this.items.filter((pet) => this.orgCityMap?.get(pet.orgId) === city);
   }
 }
