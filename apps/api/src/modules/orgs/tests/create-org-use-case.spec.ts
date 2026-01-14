@@ -42,7 +42,7 @@ describe("Create Organization Use Case", () => {
       complement: "Sala 2",
     });
 
-    const isPasswordCorrectlyHashed = await compare("123456", org.password_hash);
+    const isPasswordCorrectlyHashed = await compare("123456", org.passwordHash);
 
     expect(isPasswordCorrectlyHashed).toBe(true);
   });

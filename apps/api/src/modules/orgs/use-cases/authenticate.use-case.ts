@@ -24,7 +24,7 @@ export class AuthenticateUseCase {
       throw new InvalidCredentialsError();
     }
 
-    const doesPasswordMatches = await compare(password, org.password_hash);
+    const doesPasswordMatches = await compare(password, org.passwordHash);
 
     if (!doesPasswordMatches) {
       throw new InvalidCredentialsError();

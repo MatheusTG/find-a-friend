@@ -1,8 +1,8 @@
-import { OrgCreateInput } from "../dtos/org-create-input.dto";
+import { OrgCreateData } from "../dtos/org-create-data";
 import { Org } from "../entities/org";
 
 export interface OrgsRepository {
-  create(data: OrgCreateInput): Promise<Org>;
+  create(data: OrgCreateData): Promise<Org>;
   findByEmail(email: string): Promise<Org | null>;
   findById(id: string): Promise<Org | null>;
 }

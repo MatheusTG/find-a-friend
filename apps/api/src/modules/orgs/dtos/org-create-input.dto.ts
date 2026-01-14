@@ -1,11 +1,5 @@
-export interface OrgCreateInput {
-  name: string;
-  email: string;
+import { Org } from "../entities/org";
+
+export type OrgCreateInput = Omit<Org, "id" | "createdAt" | "updatedAt" | "passwordHash"> & {
   password: string;
-  phone: string;
-  cep: string;
-  neighborhood: string;
-  street: string;
-  number: string;
-  complement: string | null;
-}
+};

@@ -1,14 +1,14 @@
 import { prisma } from "@/lib/prisma";
 import { OrgsRepository } from "./orgs.repository";
-import { OrgCreateInput } from "../dtos/org-create-input.dto";
+import { OrgCreateData } from "../dtos/org-create-data";
 import { Org as OrgPrisma } from "@/generated/prisma/client";
 import { Org } from "../entities/org";
 
 export class PrismaOrgsRepository implements OrgsRepository {
-  async create(data: OrgCreateInput) {
+  async create(data: OrgCreateData) {
     const org = await prisma.org.create({
       data: {
-        password_hash: data.password,
+        password_hash: data.passwordHash,
         ...data,
       },
     });

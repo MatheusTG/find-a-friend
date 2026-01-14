@@ -20,12 +20,12 @@ export class CreateOrgUseCase {
       throw new EmailAlreadyExistsError();
     }
 
-    const password_hash = await hash(password, 6);
+    const passwordHash = await hash(password, 6);
 
     const org = await this.orgsRepository.create({
       ...data,
       email,
-      password_hash,
+      passwordHash,
     });
 
     return {
