@@ -1,14 +1,14 @@
 export interface Org {
+  id: string;
   number: string;
   name: string;
-  id: string;
   email: string;
-  password_hash: string;
+  passwordHash: string;
   phone: string;
   cep: string;
   neighborhood: string;
   street: string;
   complement: string | null;
-  created_at: Date;
-  updated_at?: Date;
+  createdAt: Date;
+  updatedAt?: Date;
 }

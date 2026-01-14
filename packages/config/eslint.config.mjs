@@ -13,7 +13,7 @@ export default defineConfig([
     extends: ["js/recommended"],
     languageOptions: { globals: globals.node },
   },
-  tseslint.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     files: ["**/*.json"],
     plugins: { json },
@@ -43,6 +43,14 @@ export default defineConfig([
     rules: {
       "lines-between-class-members": ["error", "always", { exceptAfterSingleLine: true }],
       "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
     },
   },
 ]);

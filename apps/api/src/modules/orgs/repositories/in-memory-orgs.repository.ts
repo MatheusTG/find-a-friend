@@ -1,15 +1,16 @@
 import { randomUUID } from "node:crypto";
-import { OrgCreateData } from "../dtos/org-create-input.dto";
+import { OrgCreateInput } from "../dtos/org-create-input.dto";
 import { Org } from "../entities/org";
 import { OrgsRepository } from "./orgs.repository";
 
 export class InMemoryOrgsRepository implements OrgsRepository {
   public items: Org[] = [];
-  async create(data: OrgCreateData) {
+  async create(data: OrgCreateInput) {
     const org: Org = {
       ...data,
+      passwordHash: data.password,
       id: randomUUID(),
-      created_at: new Date(),
+      createdAt: new Date(),
     };
 
     this.items.push(org);
