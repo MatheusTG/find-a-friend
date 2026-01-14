@@ -15,15 +15,13 @@ export class CreatePetUseCase {
   ) {}
 
   async execute(request: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
-    const org = await this.orgsRepository.findById(request.org_id);
+    const org = await this.orgsRepository.findById(request.orgId);
 
     if (!org) {
       throw new ResourceNotFoundError();
     }
 
-    const pet = await this.petsRepository.create({
-      ...request,
-    });
+    const pet = await this.petsRepository.create(request);
 
     return {
       pet,

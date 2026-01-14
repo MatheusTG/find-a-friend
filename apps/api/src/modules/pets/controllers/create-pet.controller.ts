@@ -9,15 +9,15 @@ export async function createPetController(request: FastifyRequest, reply: Fastif
     description: z.string(),
     age: z.enum(Object.values(PetAge)),
     size: z.enum(Object.values(PetSize)),
-    energy_level: z.enum(Object.values(EnergyLevel)),
-    independence_level: z.enum(Object.values(IndependenceLevel)),
-    additional_characteristics: z.string().nullable(),
+    energyLevel: z.enum(Object.values(EnergyLevel)),
+    independenceLevel: z.enum(Object.values(IndependenceLevel)),
+    additionalCharacteristics: z.string().nullable(),
   });
 
   const requestData = createPetBodySchema.parse(request.body);
 
   const createPetUseCase = MakeCreatePetUseCase();
-  await createPetUseCase.execute({ org_id: request.user.sub, ...requestData });
+  await createPetUseCase.execute({ orgId: request.user.sub, ...requestData });
 
   return reply.status(201).send();
 }

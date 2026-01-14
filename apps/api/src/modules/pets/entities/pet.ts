@@ -38,14 +38,14 @@ export type IndependenceLevel = (typeof IndependenceLevel)[keyof typeof Independ
 
 export interface Pet {
   id: string;
-  org_id: string;
+  orgId: string;
   name: string;
   description: string;
   age: PetAge;
   size: PetSize;
-  energy_level: EnergyLevel;
-  independence_level: IndependenceLevel;
-  additional_characteristics: string | null;
-  created_at: Date;
-  updated_at?: Date;
+  energyLevel: EnergyLevel;
+  independenceLevel: IndependenceLevel;
+  additionalCharacteristics: string | null;
+  createdAt: Date;
+  updatedAt?: Date;
 }

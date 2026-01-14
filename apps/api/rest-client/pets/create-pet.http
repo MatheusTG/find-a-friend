@@ -8,7 +8,7 @@ Content-Type: application/json
   "description": "Friendly and playful dog, great with kids",
   "age": "ADULT",
   "size": "LARGE",
-  "energy_level": "FOUR",
-  "independence_level": "THREE",
-  "additional_characteristics": "Vaccinated, neutered"
+  "energyLevel": "FOUR",
+  "independenceLevel": "THREE",
+  "additionalCharacteristics": "Vaccinated, neutered"
 }
