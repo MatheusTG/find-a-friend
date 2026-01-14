@@ -17,7 +17,7 @@ describe("Create Org E2E Spec", () => {
     const response = await request(app.server).post("/orgs").send({
       number: "123",
       name: "ONG Amigos dos Pets",
-      email: "contato9@amigosdospets.org",
+      email: "contato@amigosdospets.org",
       password: "123456",
       phone: "41999999999",
       cep: "80000-000",

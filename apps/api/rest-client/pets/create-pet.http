@@ -1,7 +1,9 @@
 @baseUrl=http://localhost:3333
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkZGU1ZjkxNC0xOWQ5LTQwYTAtYTVhMS01OGFjZjkzZDcwYjkiLCJpYXQiOjE3Njg0MDkxNDEsImV4cCI6MTc2ODQwOTc0MX0.tH93of7k-tYhv7uK5oy84KRlcBla6jQYGG41_zaOKdo
 
 POST {{baseUrl}}/pets
 Content-Type: application/json
+Authorization: Bearer {{ token }}
 
 {
   "name": "Thor",
