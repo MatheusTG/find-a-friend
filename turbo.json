@@ -10,6 +10,12 @@
       "persistent": true,
       "cache": false
     },
+    "test:unit": {
+      "cache": false
+    },
+    "test:e2e": {
+      "cache": false
+    },
     "format": {},
     "format:check": {}
   }
