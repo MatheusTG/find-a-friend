@@ -19,7 +19,7 @@ export async function createOrgController(request: FastifyRequest, reply: Fastif
   const requestData = createOrgBodySchema.parse(request.body);
 
   const createOrgUseCase = MakeCreateOrgUseCase();
-  const org = await createOrgUseCase.execute(requestData);
+  const { org } = await createOrgUseCase.execute(requestData);
 
   return reply.status(201).send({ org });
 }

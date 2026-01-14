@@ -10,9 +10,9 @@ export async function FindPetsByCityController(request: FastifyRequest, reply: F
   const requestData = findPetsByCityUseCaseParamsSchema.parse(request.params);
 
   const findPetsByCityUseCase = MakeFindPetsByCityUseCase();
-  const pets = await findPetsByCityUseCase.execute(requestData);
+  const { pets } = await findPetsByCityUseCase.execute(requestData);
 
-  return reply.status(201).send({
+  return reply.status(200).send({
     pets,
   });
 }
