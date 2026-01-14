@@ -17,7 +17,9 @@ export async function createPetController(request: FastifyRequest, reply: Fastif
   const requestData = createPetBodySchema.parse(request.body);
 
   const createPetUseCase = MakeCreatePetUseCase();
-  await createPetUseCase.execute({ orgId: request.user.sub, ...requestData });
+  const pet = await createPetUseCase.execute({ orgId: request.user.sub, ...requestData });
 
-  return reply.status(201).send();
+  return reply.status(201).send({
+    pet,
+  });
 }
