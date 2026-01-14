@@ -6,10 +6,12 @@ import { Org } from "../entities/org";
 
 export class PrismaOrgsRepository implements OrgsRepository {
   async create(data: OrgCreateData) {
+    const { passwordHash, ...orgWithoutPasswordHash } = data;
+
     const org = await prisma.org.create({
       data: {
-        password_hash: data.passwordHash,
-        ...data,
+        password_hash: passwordHash,
+        ...orgWithoutPasswordHash,
       },
     });
 

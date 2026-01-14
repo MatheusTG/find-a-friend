@@ -18,7 +18,7 @@ export class InMemoryOrgsRepository implements OrgsRepository {
   }
 
   async findById(id: string) {
-    return this.items.find((item) => item.email === id) || null;
+    return this.items.find((item) => item.id === id) || null;
   }
 
   async findByEmail(email: string) {
