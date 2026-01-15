@@ -38,7 +38,7 @@ describe("Search Pets By City E2E Spec", () => {
     });
 
     const response = await request(app.server)
-      .get(`/pets/Campo Mourão`)
+      .get(`/pets/search/Campo Mourão`)
       .set("Authorization", `Bearer ${token}`);
 
     expect(response.statusCode).toEqual(200);
@@ -74,7 +74,7 @@ describe("Search Pets By City E2E Spec", () => {
     });
 
     const response = await request(app.server)
-      .get(`/pets/${city}?age=ADULT&size=LARGE&energyLevel=FOUR`)
+      .get(`/pets/search/${city}?age=ADULT&size=LARGE&energyLevel=FOUR`)
       .set("Authorization", `Bearer ${token}`);
 
     expect(response.statusCode).toEqual(200);

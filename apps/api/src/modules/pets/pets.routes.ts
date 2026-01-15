@@ -7,5 +7,5 @@ export async function petsRoutes(app: FastifyInstance) {
   app.addHook("onRequest", verifyJWT);
 
   app.post("/", createPetController);
-  app.get("/:city", searchPetsController);
+  app.get("/search/:city", searchPetsController);
 }
