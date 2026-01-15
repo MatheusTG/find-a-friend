@@ -72,4 +72,33 @@ describe("Find Pets By City Use Case", () => {
 
     expect(pets).toHaveLength(0);
   });
+
+  it("should be able to find pets by characteristics", async () => {
+    await petsRepository.create({
+      orgId: "org-1",
+      name: "Thor",
+      description: "Friendly and playful dog, great with kids",
+      age: "ADULT",
+      size: "LARGE",
+      energyLevel: "FOUR",
+      independenceLevel: "THREE",
+      additionalCharacteristics: "Vaccinated, neutered",
+    });
+
+    await petsRepository.create({
+      orgId: "org-1",
+      name: "Betoven",
+      description: "Friendly and playful dog, great with kids",
+      age: "JUNIOR",
+      size: "SMALL",
+      energyLevel: "FIVE",
+      independenceLevel: "TWO",
+      additionalCharacteristics: "Trained, vaccinated",
+    });
+
+    const { pets } = await sut.execute({ city: "Campo Mourão", age: "JUNIOR", size: "SMALL" });
+
+    expect(pets).toHaveLength(1);
+    expect(pets).toEqual([expect.objectContaining({ name: "Betoven" })]);
+  });
 });
