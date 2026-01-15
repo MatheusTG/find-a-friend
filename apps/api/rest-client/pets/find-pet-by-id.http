@@ -1,0 +1,6 @@
+@baseUrl=http://localhost:3333
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmN2I1MGU2My1iYTBhLTQzZTktYTA1ZS1mM2FmYTU1NGRhZTIiLCJpYXQiOjE3Njg1MDM4NDIsImV4cCI6MTc2ODUwNDQ0Mn0.ip4zbN9GZcnXjHo0Tl01KIMqc1albdhbUzZrACHG9dA
+@id=5ffcc7fc-0f8b-488d-aeb5-c3c53ff92d86
+
+GET {{ baseUrl }}/pets/{{ id }}
+Authorization: Bearer {{ token }}

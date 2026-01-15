@@ -1,6 +1,6 @@
 import { expect, describe, it, beforeEach } from "vitest";
 import { InMemoryPetsRepository } from "../repositories/in-memory-pets.repository";
-import { SearchPetsUseCase } from "../use-cases/search-pets.use.case";
+import { SearchPetsUseCase } from "../use-cases/search-pets.use-case";
 
 let petsRepository: InMemoryPetsRepository;
 let sut: SearchPetsUseCase;
