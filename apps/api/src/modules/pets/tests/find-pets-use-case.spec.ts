@@ -1,16 +1,16 @@
 import { expect, describe, it, beforeEach } from "vitest";
 import { InMemoryPetsRepository } from "../repositories/in-memory-pets.repository";
-import { FindPetsByCityUseCase } from "../use-cases/find-pets-by-city.use.case";
+import { FindPetsUseCase } from "../use-cases/find-pets.use.case";
 
 let petsRepository: InMemoryPetsRepository;
-let sut: FindPetsByCityUseCase;
+let sut: FindPetsUseCase;
 
 describe("Find Pets By City Use Case", () => {
   beforeEach(() => {
     const orgCityMap = new Map([["org-1", "Campo Mourão"]]);
 
     petsRepository = new InMemoryPetsRepository(orgCityMap);
-    sut = new FindPetsByCityUseCase(petsRepository);
+    sut = new FindPetsUseCase(petsRepository);
   });
 
   it("should be able to find pets by city", async () => {

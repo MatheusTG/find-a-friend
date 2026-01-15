@@ -38,7 +38,7 @@ describe("Find Pets By City E2E Spec", () => {
     });
 
     const response = await request(app.server)
-      .post(`/pets/Campo Mourão`)
+      .get(`/pets/Campo Mourão`)
       .set("Authorization", `Bearer ${token}`);
 
     expect(response.statusCode).toEqual(200);

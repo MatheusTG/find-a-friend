@@ -1,12 +1,3 @@
-import { EnergyLevel, IndependenceLevel, PetAge, PetSize } from "../entities/pet";
+import { Pet } from "../entities/pet";
 
-export type PetCreateInput = {
-  orgId: string;
-  name: string;
-  description: string;
-  age: PetAge;
-  size: PetSize;
-  energyLevel: EnergyLevel;
-  independenceLevel: IndependenceLevel;
-  additionalCharacteristics: string | null;
-};
+export type PetCreateInput = Omit<Pet, "id" | "createdAt" | "updatedAt">;

@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { Pet } from "../entities/pet";
 import { PetsRepository } from "./pets.repository";
 import { PetCreateInput } from "../dtos/pet-create-input.dto";
+import { FindPetsInput } from "../dtos/find-pets-input.dto";
 
 type OrgCityMap = Map<string, string>;
 
@@ -22,7 +23,7 @@ export class InMemoryPetsRepository implements PetsRepository {
     return org;
   }
 
-  async findManyByCity(city: string): Promise<Pet[]> {
-    return this.items.filter((pet) => this.orgCityMap?.get(pet.orgId) === city);
+  async findManyByCityAndCharacteristics(params: FindPetsInput): Promise<Pet[]> {
+    return this.items.filter((pet) => this.orgCityMap?.get(pet.orgId) === params.city);
   }
 }
