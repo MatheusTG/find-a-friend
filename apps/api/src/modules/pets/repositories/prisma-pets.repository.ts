@@ -39,6 +39,18 @@ export class PrismaPetsRepository implements PetsRepository {
     return this.mapToDomain(pet);
   }
 
+  async findById(id: string) {
+    const pet = await prisma.pet.findUnique({
+      where: { id },
+    });
+
+    if (pet) {
+      return this.mapToDomain(pet);
+    }
+
+    return null;
+  }
+
   async findManyByCityAndCharacteristics(params: SearchPetsInput) {
     const pets = await prisma.pet.findMany({
       where: {

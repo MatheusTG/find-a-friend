@@ -23,6 +23,10 @@ export class InMemoryPetsRepository implements PetsRepository {
     return org;
   }
 
+  async findById(id: string): Promise<Pet | null> {
+    return this.items.find((item) => item.id === id) || null;
+  }
+
   async findManyByCityAndCharacteristics(params: SearchPetsInput): Promise<Pet[]> {
     return this.items.filter((pet) => {
       if (this.orgCityMap?.get(pet.orgId) !== params.city) {
