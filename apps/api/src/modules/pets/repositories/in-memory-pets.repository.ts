@@ -24,6 +24,28 @@ export class InMemoryPetsRepository implements PetsRepository {
   }
 
   async findManyByCityAndCharacteristics(params: FindPetsInput): Promise<Pet[]> {
-    return this.items.filter((pet) => this.orgCityMap?.get(pet.orgId) === params.city);
+    return this.items.filter((pet) => {
+      if (this.orgCityMap?.get(pet.orgId) !== params.city) return false;
+
+      const checks: [boolean, string][] = [
+        [!!params.age && pet.age !== params.age, "age"],
+        [!!params.size && pet.size !== params.size, "size"],
+        [!!params.energyLevel && pet.energyLevel !== params.energyLevel, "energyLevel"],
+        [
+          !!params.independenceLevel && pet.independenceLevel !== params.independenceLevel,
+          "independenceLevel",
+        ],
+        [
+          !!params.search &&
+            !(
+              pet.name.toLowerCase().includes(params.search.toLowerCase()) ||
+              (pet.description?.toLowerCase().includes(params.search.toLowerCase()) ?? false)
+            ),
+          "search",
+        ],
+      ];
+
+      return !checks.some(([failed]) => failed);
+    });
   }
 }
