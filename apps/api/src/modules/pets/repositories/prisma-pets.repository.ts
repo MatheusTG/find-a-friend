@@ -22,6 +22,15 @@ export class PrismaPetsRepository implements PetsRepository {
     };
   }
 
+  async update(petId: string, data: Partial<PetCreateInput>): Promise<Pet> {
+    const updatedPet = await prisma.pet.update({
+      where: { id: petId },
+      data,
+    });
+
+    return this.mapToDomain(updatedPet);
+  }
+
   async create(data: PetCreateInput) {
     const pet = await prisma.pet.create({
       data: {

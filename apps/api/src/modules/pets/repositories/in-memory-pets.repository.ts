@@ -3,6 +3,7 @@ import { Pet } from "../entities/pet";
 import { PetsRepository } from "./pets.repository";
 import { PetCreateInput } from "../dtos/pet-create-input.dto";
 import { SearchPetsInput } from "../dtos/search-pets-input.dto";
+import { ResourceNotFoundError } from "@/lib/errors/resource-not-found.error";
 
 type OrgCityMap = Map<string, string>;
 
@@ -25,6 +26,24 @@ export class InMemoryPetsRepository implements PetsRepository {
 
   async findById(id: string): Promise<Pet | null> {
     return this.items.find((item) => item.id === id) || null;
+  }
+
+  async update(id: string, data: PetCreateInput): Promise<Pet> {
+    const petIndex = this.items.findIndex((pet) => pet.id === id);
+
+    const pet = this.items[petIndex];
+
+    if (pet) {
+      this.items[petIndex] = {
+        ...pet,
+        ...data,
+        updatedAt: new Date(),
+      };
+
+      return this.items[petIndex];
+    }
+
+    throw new ResourceNotFoundError();
   }
 
   async findManyByCityAndCharacteristics(params: SearchPetsInput): Promise<Pet[]> {
