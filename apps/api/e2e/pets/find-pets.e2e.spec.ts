@@ -14,8 +14,8 @@ describe("Find Pets By City E2E Spec", () => {
     await app.close();
   });
 
-  it("should be able to create a new pet", async () => {
-    const { token } = await createAndAuthenticateUser(app);
+  it("should be able to find pets by city", async () => {
+    const { token } = await createAndAuthenticateUser(app, "Campo Mourão");
 
     await request(app.server).post("/pets").set("Authorization", `Bearer ${token}`).send({
       name: "Thor",
@@ -47,5 +47,38 @@ describe("Find Pets By City E2E Spec", () => {
       expect.objectContaining({ name: "Thor" }),
       expect.objectContaining({ name: "Betoven" }),
     ]);
+  });
+
+  it("should be able to find pets by characteristics", async () => {
+    const city = "Araruna";
+    const { token } = await createAndAuthenticateUser(app, city);
+
+    await request(app.server).post("/pets").set("Authorization", `Bearer ${token}`).send({
+      name: "Thor",
+      description: "Friendly and playful dog, great with kids",
+      age: "ADULT",
+      size: "LARGE",
+      energyLevel: "THREE",
+      independenceLevel: "THREE",
+      additionalCharacteristics: "Vaccinated, neutered",
+    });
+
+    await request(app.server).post("/pets").set("Authorization", `Bearer ${token}`).send({
+      name: "Betoven",
+      description: "Friendly and playful dog, great with kids",
+      age: "ADULT",
+      size: "LARGE",
+      energyLevel: "FOUR",
+      independenceLevel: "THREE",
+      additionalCharacteristics: "Vaccinated, neutered",
+    });
+
+    const response = await request(app.server)
+      .get(`/pets/${city}?age=ADULT&size=LARGE&energyLevel=FOUR`)
+      .set("Authorization", `Bearer ${token}`);
+
+    expect(response.statusCode).toEqual(200);
+    expect(response.body.pets).toHaveLength(1);
+    expect(response.body.pets).toEqual([expect.objectContaining({ name: "Betoven" })]);
   });
 });
