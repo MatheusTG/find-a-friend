@@ -5,7 +5,7 @@ import { createAndAuthenticateUser } from "@/utils/test/createAndAuthenticateUse
 
 const app = await createApp();
 
-describe("Find Pets By City E2E Spec", () => {
+describe("Search Pets By City E2E Spec", () => {
   beforeAll(async () => {
     await app.ready();
   });
@@ -14,7 +14,7 @@ describe("Find Pets By City E2E Spec", () => {
     await app.close();
   });
 
-  it("should be able to find pets by city", async () => {
+  it("should be able to search pets by city", async () => {
     const { token } = await createAndAuthenticateUser(app, "Campo Mourão");
 
     await request(app.server).post("/pets").set("Authorization", `Bearer ${token}`).send({
@@ -49,7 +49,7 @@ describe("Find Pets By City E2E Spec", () => {
     ]);
   });
 
-  it("should be able to find pets by characteristics", async () => {
+  it("should be able to search pets by characteristics", async () => {
     const city = "Araruna";
     const { token } = await createAndAuthenticateUser(app, city);
 

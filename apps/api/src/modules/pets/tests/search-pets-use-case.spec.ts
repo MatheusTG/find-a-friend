@@ -5,7 +5,7 @@ import { SearchPetsUseCase } from "../use-cases/search-pets.use.case";
 let petsRepository: InMemoryPetsRepository;
 let sut: SearchPetsUseCase;
 
-describe("Find Pets By City Use Case", () => {
+describe("Search Pets By City Use Case", () => {
   beforeEach(() => {
     const orgCityMap = new Map([["org-1", "Campo Mourão"]]);
 
@@ -13,7 +13,7 @@ describe("Find Pets By City Use Case", () => {
     sut = new SearchPetsUseCase(petsRepository);
   });
 
-  it("should be able to find pets by city", async () => {
+  it("should be able to search pets by city", async () => {
     await petsRepository.create({
       orgId: "org-1",
       name: "Thor",
@@ -73,7 +73,7 @@ describe("Find Pets By City Use Case", () => {
     expect(pets).toHaveLength(0);
   });
 
-  it("should be able to find pets by characteristics", async () => {
+  it("should be able to search pets by characteristics", async () => {
     await petsRepository.create({
       orgId: "org-1",
       name: "Thor",
