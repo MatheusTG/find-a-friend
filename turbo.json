@@ -10,10 +10,14 @@
       "persistent": true,
       "cache": false
     },
+    "prisma:generate": {
+      "outputs": ["src/generated/prisma/**"]
+    },
     "test:unit": {
       "cache": false
     },
     "test:e2e": {
+      "dependsOn": ["prisma:generate"],
       "cache": false
     },
     "format": {},

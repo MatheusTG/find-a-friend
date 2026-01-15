@@ -8,6 +8,7 @@
   "type": "module",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
+    "prisma:generate": "prisma generate",
     "test:unit": "vitest run --project unit",
     "test:unit:watch": "vitest --project unit",
     "test:e2e": "vitest run --project e2e",
