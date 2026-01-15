@@ -1,14 +1,14 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { MakeFindPetsUseCase } from "../factories/make-find-pets-use-case";
+import { MakeSearchPetsUseCase } from "../factories/make-search-pets-use-case";
 import { EnergyLevel, IndependenceLevel, PetAge, PetSize } from "../entities/pet";
 
-export async function findPetsController(request: FastifyRequest, reply: FastifyReply) {
-  const findPetsUseCaseParamsSchema = z.object({
+export async function searchPetsController(request: FastifyRequest, reply: FastifyReply) {
+  const searchPetsUseCaseParamsSchema = z.object({
     city: z.string(),
   });
 
-  const findPetsUseCaseQuerySchema = z.object({
+  const searchPetsUseCaseQuerySchema = z.object({
     search: z.string().optional(),
     age: z.enum(Object.values(PetAge)).optional(),
     size: z.enum(Object.values(PetSize)).optional(),
@@ -16,11 +16,11 @@ export async function findPetsController(request: FastifyRequest, reply: Fastify
     independenceLevel: z.enum(Object.values(IndependenceLevel)).optional(),
   });
 
-  const requestParamsData = findPetsUseCaseParamsSchema.parse(request.params);
-  const requestQueryData = findPetsUseCaseQuerySchema.parse(request.query);
+  const requestParamsData = searchPetsUseCaseParamsSchema.parse(request.params);
+  const requestQueryData = searchPetsUseCaseQuerySchema.parse(request.query);
 
-  const findPetsUseCase = MakeFindPetsUseCase();
-  const { pets } = await findPetsUseCase.execute({
+  const searchPetsUseCase = MakeSearchPetsUseCase();
+  const { pets } = await searchPetsUseCase.execute({
     ...requestParamsData,
     ...requestQueryData,
   });

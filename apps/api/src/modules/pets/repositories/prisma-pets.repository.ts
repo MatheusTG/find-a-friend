@@ -3,7 +3,7 @@ import { PetCreateInput } from "../dtos/pet-create-input.dto";
 import { PetsRepository } from "./pets.repository";
 import { Pet as PetPrisma } from "@/generated/prisma/client";
 import { Pet } from "../entities/pet";
-import { FindPetsInput } from "../dtos/find-pets-input.dto";
+import { SearchPetsInput } from "../dtos/search-pets-input.dto";
 
 export class PrismaPetsRepository implements PetsRepository {
   private mapToDomain(pet: PetPrisma): Pet {
@@ -39,7 +39,7 @@ export class PrismaPetsRepository implements PetsRepository {
     return this.mapToDomain(pet);
   }
 
-  async findManyByCityAndCharacteristics(params: FindPetsInput) {
+  async findManyByCityAndCharacteristics(params: SearchPetsInput) {
     const pets = await prisma.pet.findMany({
       where: {
         org: {

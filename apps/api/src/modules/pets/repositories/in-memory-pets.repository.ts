@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { Pet } from "../entities/pet";
 import { PetsRepository } from "./pets.repository";
 import { PetCreateInput } from "../dtos/pet-create-input.dto";
-import { FindPetsInput } from "../dtos/find-pets-input.dto";
+import { SearchPetsInput } from "../dtos/search-pets-input.dto";
 
 type OrgCityMap = Map<string, string>;
 
@@ -23,29 +23,29 @@ export class InMemoryPetsRepository implements PetsRepository {
     return org;
   }
 
-  async findManyByCityAndCharacteristics(params: FindPetsInput): Promise<Pet[]> {
+  async findManyByCityAndCharacteristics(params: SearchPetsInput): Promise<Pet[]> {
     return this.items.filter((pet) => {
-      if (this.orgCityMap?.get(pet.orgId) !== params.city) return false;
+      if (this.orgCityMap?.get(pet.orgId) !== params.city) {
+        return false;
+      }
 
-      const checks: [boolean, string][] = [
-        [!!params.age && pet.age !== params.age, "age"],
-        [!!params.size && pet.size !== params.size, "size"],
-        [!!params.energyLevel && pet.energyLevel !== params.energyLevel, "energyLevel"],
-        [
-          !!params.independenceLevel && pet.independenceLevel !== params.independenceLevel,
-          "independenceLevel",
-        ],
-        [
-          !!params.search &&
-            !(
-              pet.name.toLowerCase().includes(params.search.toLowerCase()) ||
-              (pet.description?.toLowerCase().includes(params.search.toLowerCase()) ?? false)
-            ),
-          "search",
-        ],
-      ];
+      if (params.age && pet.age !== params.age) return false;
+      if (params.size && pet.size !== params.size) return false;
+      if (params.energyLevel && pet.energyLevel !== params.energyLevel) return false;
+      if (params.independenceLevel && pet.independenceLevel !== params.independenceLevel)
+        return false;
 
-      return !checks.some(([failed]) => failed);
+      if (params.search) {
+        const search = params.search.toLowerCase();
+
+        const matches =
+          pet.name.toLowerCase().includes(search) ||
+          pet.description?.toLowerCase().includes(search);
+
+        if (!matches) return false;
+      }
+
+      return true;
     });
   }
 }

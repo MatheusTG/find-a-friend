@@ -1,15 +1,15 @@
-import { FindPetsInput } from "../dtos/find-pets-input.dto";
+import { SearchPetsInput } from "../dtos/search-pets-input.dto";
 import { Pet } from "../entities/pet";
 import { PetsRepository } from "../repositories/pets.repository";
 
-type FindPetsUseCaseRequest = FindPetsInput;
+type SearchPetsUseCaseRequest = SearchPetsInput;
 
-type FindPetsUseCaseResponse = { pets: Pet[] };
+type SearchPetsUseCaseResponse = { pets: Pet[] };
 
-export class FindPetsUseCase {
+export class SearchPetsUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
-  async execute(request: FindPetsUseCaseRequest): Promise<FindPetsUseCaseResponse> {
+  async execute(request: SearchPetsUseCaseRequest): Promise<SearchPetsUseCaseResponse> {
     const pets = await this.petsRepository.findManyByCityAndCharacteristics(request);
 
     return {

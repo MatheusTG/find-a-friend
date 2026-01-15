@@ -1,6 +1,6 @@
 import { Pet } from "../entities/pet";
 
-export type FindPetsInput = Partial<
+export type SearchPetsInput = Partial<
   Pick<Pet, "age" | "size" | "energyLevel" | "independenceLevel">
 > & {
   city: string;
