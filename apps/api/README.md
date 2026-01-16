@@ -22,7 +22,7 @@ Functional requirements describe what the system must do.
 - [x] **FR005 - Pets:** The system must allow listing all pets available for adoption by city.
 - [x] **FR006 - Pets:** The system must allow filtering pets by characteristics.
 - [x] **FR007 - Pets:** The system must allow viewing a specific pet.
-- [ ] **FR008 - Adoption:** The system must provide the ORG’s contact information for adoption.
+- [x] **FR008 - Adoption:** The system must provide the ORG’s contact information for adoption.
 
 ---
 
@@ -32,9 +32,9 @@ Business rules define mandatory constraints and behaviors.
 
 - [x] **BR001 - Ownership:** Each pet must belong to exactly one ORG.
 - [x] **BR002 - Access Control:** Only authenticated ORGs can register or manage pets.
-- [ ] **BR003 - Data Privacy:** ORGs can only manage pets they have created.
+- [x] **BR003 - Data Privacy:** ORGs can only manage pets they have created.
 - [x] **BR004 - Mandatory City:** City is required when listing pets.
-- [ ] **BR005 - Direct Contact:** Adoption contact must be made directly with the ORG.
+- [x] **BR005 - Direct Contact:** Adoption contact must be made directly with the ORG.
 
 ---
 
