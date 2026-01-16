@@ -5,6 +5,7 @@ import { PetsRepository } from "../repositories/pets.repository";
 
 type UpdatePetUseCaseRequest = {
   petId: string;
+  orgId: string;
   data: Partial<PetCreateInput>;
 };
 
@@ -14,11 +15,11 @@ export class UpdatePetUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
   async execute(request: UpdatePetUseCaseRequest): Promise<UpdatePetUseCaseResponse> {
-    const { petId, data } = request;
+    const { petId, orgId, data } = request;
 
     const previousPet = await this.petsRepository.findById(petId);
 
-    if (!previousPet) {
+    if (!previousPet || previousPet.orgId !== orgId) {
       throw new ResourceNotFoundError();
     }
 

@@ -22,10 +22,36 @@ export class PrismaPetsRepository implements PetsRepository {
     };
   }
 
+  private mapToPrisma(pet: PetCreateInput) {
+    return {
+      org_id: pet.orgId,
+      name: pet.name,
+      description: pet.description,
+      age: pet.age,
+      size: pet.size,
+      energy_level: pet.energyLevel,
+      independence_level: pet.independenceLevel,
+      additional_characteristics: pet.additionalCharacteristics,
+    };
+  }
+
+  private mapToPrismaPartial(data: Partial<PetCreateInput>) {
+    return {
+      org_id: data.orgId,
+      name: data.name,
+      description: data.description,
+      age: data.age,
+      size: data.size,
+      energy_level: data.energyLevel,
+      independence_level: data.independenceLevel,
+      additional_characteristics: data.additionalCharacteristics,
+    };
+  }
+
   async update(petId: string, data: Partial<PetCreateInput>): Promise<Pet> {
     const updatedPet = await prisma.pet.update({
       where: { id: petId },
-      data,
+      data: this.mapToPrismaPartial(data),
     });
 
     return this.mapToDomain(updatedPet);
@@ -33,16 +59,7 @@ export class PrismaPetsRepository implements PetsRepository {
 
   async create(data: PetCreateInput) {
     const pet = await prisma.pet.create({
-      data: {
-        org_id: data.orgId,
-        name: data.name,
-        description: data.description,
-        age: data.age,
-        size: data.size,
-        energy_level: data.energyLevel,
-        independence_level: data.independenceLevel,
-        additional_characteristics: data.additionalCharacteristics,
-      },
+      data: this.mapToPrisma(data),
     });
 
     return this.mapToDomain(pet);

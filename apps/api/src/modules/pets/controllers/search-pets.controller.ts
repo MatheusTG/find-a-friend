@@ -8,13 +8,15 @@ export async function searchPetsController(request: FastifyRequest, reply: Fasti
     city: z.string(),
   });
 
-  const searchPetsUseCaseQuerySchema = z.object({
-    search: z.string().optional(),
-    age: z.enum(Object.values(PetAge)).optional(),
-    size: z.enum(Object.values(PetSize)).optional(),
-    energyLevel: z.enum(Object.values(EnergyLevel)).optional(),
-    independenceLevel: z.enum(Object.values(IndependenceLevel)).optional(),
-  });
+  const searchPetsUseCaseQuerySchema = z
+    .object({
+      search: z.string(),
+      age: z.enum(Object.values(PetAge)),
+      size: z.enum(Object.values(PetSize)),
+      energyLevel: z.enum(Object.values(EnergyLevel)),
+      independenceLevel: z.enum(Object.values(IndependenceLevel)),
+    })
+    .partial();
 
   const requestParamsData = searchPetsUseCaseParamsSchema.parse(request.params);
   const requestQueryData = searchPetsUseCaseQuerySchema.parse(request.query);
