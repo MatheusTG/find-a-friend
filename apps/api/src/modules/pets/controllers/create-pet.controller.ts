@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { MakeCreatePetUseCase } from "../factories/make-create-pet-use-case";
+import { makeCreatePetUseCase } from "../factories/make-create-pet-use-case";
 import { EnergyLevel, IndependenceLevel, PetAge, PetSize } from "../entities/pet";
 
 export async function createPetController(request: FastifyRequest, reply: FastifyReply) {
@@ -16,7 +16,7 @@ export async function createPetController(request: FastifyRequest, reply: Fastif
 
   const requestData = createPetBodySchema.parse(request.body);
 
-  const createPetUseCase = MakeCreatePetUseCase();
+  const createPetUseCase = makeCreatePetUseCase();
   const { pet } = await createPetUseCase.execute({ orgId: request.user.sub, ...requestData });
 
   return reply.status(201).send({

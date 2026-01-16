@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { MakeSearchPetsUseCase } from "../factories/make-search-pets-use-case";
+import { makeSearchPetsUseCase } from "../factories/make-search-pets-use-case";
 import { EnergyLevel, IndependenceLevel, PetAge, PetSize } from "../entities/pet";
 
 export async function searchPetsController(request: FastifyRequest, reply: FastifyReply) {
@@ -19,7 +19,7 @@ export async function searchPetsController(request: FastifyRequest, reply: Fasti
   const requestParamsData = searchPetsUseCaseParamsSchema.parse(request.params);
   const requestQueryData = searchPetsUseCaseQuerySchema.parse(request.query);
 
-  const searchPetsUseCase = MakeSearchPetsUseCase();
+  const searchPetsUseCase = makeSearchPetsUseCase();
   const { pets } = await searchPetsUseCase.execute({
     ...requestParamsData,
     ...requestQueryData,
