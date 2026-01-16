@@ -5,7 +5,7 @@ import { createAndAuthenticateUser } from "@/utils/test/createAndAuthenticateUse
 
 const app = await createApp();
 
-describe("Search Pets By City E2E Spec", () => {
+describe("Search Pets By City And Characteristics E2E Spec", () => {
   beforeAll(async () => {
     await app.ready();
   });

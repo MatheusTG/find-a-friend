@@ -1,8 +1,8 @@
 @baseUrl=http://localhost:3333
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMGU3MmQzMS0yMDVhLTQ0N2MtYTA3Ni1lZDk3ODI0MmVmMzciLCJpYXQiOjE3Njg0MTgzODYsImV4cCI6MTc2ODQxODk4Nn0.hARaQnTzRM2acc5JIK_5_S9fbwYB7ShzQPLKAizdc4M
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMGU3MmQzMS0yMDVhLTQ0N2MtYTA3Ni1lZDk3ODI0MmVmMzciLCJpYXQiOjE3Njg1NjczNDYsImV4cCI6MTc2ODU2Nzk0Nn0.os9XCzU_aeVHgtrdZtrmg-riUJmUJ1Lhla4QYfIjQtM
 @city=Campo Mourão
 
-GET {{ baseUrl }}/pets/search/{{ city }}
+GET {{ baseUrl }}/pets/search/{{ city }}?search=Thor
 Content-Type: application/json
 Authorization: Bearer {{ token }}
 
